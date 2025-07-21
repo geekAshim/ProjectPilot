@@ -4,14 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",    
+    "dev": "vite",
     "build": "CI= react-scripts build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "engines": {
+    "node": ">=0.7.0"
+  },
   "dependencies": {
     "mini.css": "^3.0.1",
-    "node": "^24.4.0",
+    "node": "^24.4.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
