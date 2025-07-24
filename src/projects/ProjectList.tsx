@@ -13,12 +13,15 @@ function ProjectList({ projects }: ProjectListProps) {
      //console.log(project);
      setProjectBeingEdited(project);
    };
+   const cancelEdit = () => {
+    setProjectBeingEdited({});
+   };
   return (
     <div className="row">
       {projects.map((project) => (
         <div key={project.id} className="cols-sm">           
             {project === projectBeingEdited ? (
-            <ProjectForm />
+            <ProjectForm onCancel={cancelEdit} />
             ) : (
             <ProjectCard project={project} onEdit={handleEdit} />
           )}
