@@ -13,11 +13,11 @@ on:
             description: 'Deployment environment'
             required: true
             default: 'production'
-          version:
+          versionTag:
             description: 'Application version'
-            required: false
-            type: string
-
+            required: false            
+env:
+  ARTIFACT_NAME: projectpilot-build-${{ github.event.inputs.versionTag || github.run_number }}-${{ github.sha }}
 
 jobs:
   build:
@@ -45,7 +45,7 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: node-app
+          name: ${{ env.ARTIFACT_NAME}}
           path: ./dist
 
   deploy:
@@ -59,7 +59,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: node-app
+          name: ${{ env.ARTIFACT_NAME}}
       
       - name: Login to Azure
         uses: azure/login@v2
