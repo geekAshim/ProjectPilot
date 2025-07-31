@@ -1,6 +1,7 @@
 
 import { Project } from './Project';
-import { SyntheticEvent, useState } from 'react';
+import type { SyntheticEvent } from 'react';
+import { useState } from 'react';
 
 interface ProjectFormProps {
   project: Project;
