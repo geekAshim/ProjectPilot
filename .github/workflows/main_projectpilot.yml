@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: '22.x'
 
+      - name: install module @rollup/rollup-linux-x64-gnu
+        run: npm install @rollup/rollup-linux-x64-gnu
+
       - name: npm install, build, and test
         run: |
           npm install
